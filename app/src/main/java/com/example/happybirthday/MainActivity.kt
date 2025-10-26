@@ -1,5 +1,6 @@
 package com.example.happybirthday
 
+import android.R.id.message
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
@@ -33,9 +34,11 @@ class MainActivity : ComponentActivity() {
 }
 
 @Composable
-fun GreetingText()
+fun GreetingText(message: String, modifier: Modifier = Modifier)
 {
-
+    Text(
+        text = message
+    )
 }
 
 
@@ -43,6 +46,6 @@ fun GreetingText()
 @Composable
 fun BirthdayCardPreview() {
     HappyBirthdayTheme {
-
+        GreetingText(message = "Happy Birthday Jordi!")
     }
 }
