@@ -6,7 +6,6 @@ import androidx.activity.compose.setContent
 import androidx.activity.enableEdgeToEdge
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
-import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.padding
 import androidx.compose.material3.MaterialTheme
@@ -27,13 +26,15 @@ class MainActivity : ComponentActivity() {
         enableEdgeToEdge()
         setContent {
             HappyBirthdayTheme {
-                Surface (
+                Surface(
                     modifier = Modifier.fillMaxSize(),
                     color = MaterialTheme.colorScheme.background
                 ) {
-                    GreetingText(message = "Happy Birthday Jordi!",
+                    GreetingText(
+                        message = "Happy Birthday Jordi!",
                         from = "From Rosa",
-                        modifier = Modifier.padding(8.dp))
+                        modifier = Modifier.padding(8.dp)
+                    )
                 }
             }
         }
@@ -41,11 +42,11 @@ class MainActivity : ComponentActivity() {
 }
 
 @Composable
-fun GreetingText(message: String, from: String, modifier: Modifier = Modifier)
-{
+fun GreetingText(message: String, from: String, modifier: Modifier = Modifier) {
     Column(
         verticalArrangement = Arrangement.Center,
-        modifier = Modifier) {
+        modifier = modifier
+    ) {
         // Argumentos
         Text(
             text = message,
